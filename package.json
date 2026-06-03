@@ -4,6 +4,7 @@
   "description": "Tree-sitter grammar and parser for JASS2",
   "main": "grammar.js",
   "dependencies": {
+    "node-addon-api": "^8.8.0",
     "tree-sitter-cli": "^0.26.9"
   },
   "devDependencies": {},
