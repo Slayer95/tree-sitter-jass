@@ -1,44 +1,5 @@
 [
   {
-    "type": "Alternate",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "CallStatement",
-          "named": true
-        },
-        {
-          "type": "ExitWhenStatement",
-          "named": true
-        },
-        {
-          "type": "IfStatement",
-          "named": true
-        },
-        {
-          "type": "LoopStatement",
-          "named": true
-        },
-        {
-          "type": "NewLine",
-          "named": true
-        },
-        {
-          "type": "ReturnStatement",
-          "named": true
-        },
-        {
-          "type": "SetStatement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "ArrayElement",
     "named": true,
     "fields": {
@@ -130,6 +91,48 @@
     "type": "BinaryExpression",
     "named": true,
     "fields": {
+      "lhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
+      },
       "operator": {
         "multiple": false,
         "required": true,
@@ -139,49 +142,49 @@
             "named": true
           }
         ]
+      },
+      "rhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ArrayElement",
-          "named": true
-        },
-        {
-          "type": "BinaryExpression",
-          "named": true
-        },
-        {
-          "type": "CallExpression",
-          "named": true
-        },
-        {
-          "type": "Identifier",
-          "named": true
-        },
-        {
-          "type": "Literal",
-          "named": true
-        },
-        {
-          "type": "NegativeExpression",
-          "named": true
-        },
-        {
-          "type": "NotExpression",
-          "named": true
-        },
-        {
-          "type": "ParenthesizedExpression",
-          "named": true
-        },
-        {
-          "type": "PositiveExpression",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -245,121 +248,9 @@
     }
   },
   {
-    "type": "Consequent",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "CallStatement",
-          "named": true
-        },
-        {
-          "type": "ExitWhenStatement",
-          "named": true
-        },
-        {
-          "type": "IfStatement",
-          "named": true
-        },
-        {
-          "type": "LoopStatement",
-          "named": true
-        },
-        {
-          "type": "NewLine",
-          "named": true
-        },
-        {
-          "type": "ReturnStatement",
-          "named": true
-        },
-        {
-          "type": "SetStatement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "DeclareAttributes",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "ElseIfStatement",
-    "named": true,
-    "fields": {
-      "test": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Identifier",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "Consequent",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "ElseStatement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "Alternate",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "ExitWhenStatement",
@@ -477,14 +368,6 @@
           "named": true
         },
         {
-          "type": "ExitWhenStatement",
-          "named": true
-        },
-        {
-          "type": "IfStatement",
-          "named": true
-        },
-        {
           "type": "LocalDeclarationStatement",
           "named": true
         },
@@ -494,6 +377,10 @@
         },
         {
           "type": "NewLine",
+          "named": true
+        },
+        {
+          "type": "RIfStatement",
           "named": true
         },
         {
@@ -679,7 +566,206 @@
     }
   },
   {
-    "type": "IfStatement",
+    "type": "Initializer",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "LAlternate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "CallStatement",
+          "named": true
+        },
+        {
+          "type": "ExitWhenStatement",
+          "named": true
+        },
+        {
+          "type": "LIfStatement",
+          "named": true
+        },
+        {
+          "type": "LoopStatement",
+          "named": true
+        },
+        {
+          "type": "NewLine",
+          "named": true
+        },
+        {
+          "type": "ReturnStatement",
+          "named": true
+        },
+        {
+          "type": "SetStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "LConsequent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "CallStatement",
+          "named": true
+        },
+        {
+          "type": "ExitWhenStatement",
+          "named": true
+        },
+        {
+          "type": "LIfStatement",
+          "named": true
+        },
+        {
+          "type": "LoopStatement",
+          "named": true
+        },
+        {
+          "type": "NewLine",
+          "named": true
+        },
+        {
+          "type": "ReturnStatement",
+          "named": true
+        },
+        {
+          "type": "SetStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "LElseIfStatement",
+    "named": true,
+    "fields": {
+      "test": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "LConsequent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "LElseStatement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "LAlternate",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "LIfStatement",
     "named": true,
     "fields": {
       "test": {
@@ -730,66 +816,18 @@
       "required": true,
       "types": [
         {
-          "type": "Consequent",
+          "type": "LConsequent",
           "named": true
         },
         {
-          "type": "ElseIfStatement",
+          "type": "LElseIfStatement",
           "named": true
         },
         {
-          "type": "ElseStatement",
+          "type": "LElseStatement",
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "Initializer",
-    "named": true,
-    "fields": {
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Identifier",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -892,7 +930,7 @@
           "named": true
         },
         {
-          "type": "IfStatement",
+          "type": "LIfStatement",
           "named": true
         },
         {
@@ -1121,6 +1159,215 @@
         },
         {
           "type": "PositiveExpression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RAlternate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "CallStatement",
+          "named": true
+        },
+        {
+          "type": "LoopStatement",
+          "named": true
+        },
+        {
+          "type": "NewLine",
+          "named": true
+        },
+        {
+          "type": "RIfStatement",
+          "named": true
+        },
+        {
+          "type": "ReturnStatement",
+          "named": true
+        },
+        {
+          "type": "SetStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RConsequent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "CallStatement",
+          "named": true
+        },
+        {
+          "type": "LoopStatement",
+          "named": true
+        },
+        {
+          "type": "NewLine",
+          "named": true
+        },
+        {
+          "type": "RIfStatement",
+          "named": true
+        },
+        {
+          "type": "ReturnStatement",
+          "named": true
+        },
+        {
+          "type": "SetStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RElseIfStatement",
+    "named": true,
+    "fields": {
+      "test": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "RConsequent",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RElseStatement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "RAlternate",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "RIfStatement",
+    "named": true,
+    "fields": {
+      "test": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ArrayElement",
+            "named": true
+          },
+          {
+            "type": "BinaryExpression",
+            "named": true
+          },
+          {
+            "type": "CallExpression",
+            "named": true
+          },
+          {
+            "type": "Identifier",
+            "named": true
+          },
+          {
+            "type": "Literal",
+            "named": true
+          },
+          {
+            "type": "NegativeExpression",
+            "named": true
+          },
+          {
+            "type": "NotExpression",
+            "named": true
+          },
+          {
+            "type": "ParenthesizedExpression",
+            "named": true
+          },
+          {
+            "type": "PositiveExpression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "RConsequent",
+          "named": true
+        },
+        {
+          "type": "RElseIfStatement",
+          "named": true
+        },
+        {
+          "type": "RElseStatement",
           "named": true
         }
       ]

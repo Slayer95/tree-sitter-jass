@@ -752,7 +752,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "Statement"
+                    "name": "RStatement"
                   },
                   {
                     "type": "SYMBOL",
@@ -869,12 +869,37 @@
         }
       ]
     },
-    "Statement": {
+    "RStatement": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "IfStatement"
+          "name": "RIfStatement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LoopStatement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ReturnStatement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "SetStatement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "CallStatement"
+        }
+      ]
+    },
+    "LStatement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "LIfStatement"
         },
         {
           "type": "SYMBOL",
@@ -898,7 +923,7 @@
         }
       ]
     },
-    "IfStatement": {
+    "RIfStatement": {
       "type": "SEQ",
       "members": [
         {
@@ -919,13 +944,13 @@
         },
         {
           "type": "SYMBOL",
-          "name": "Consequent"
+          "name": "RConsequent"
         },
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "ElseIfStatement"
+            "name": "RElseIfStatement"
           }
         },
         {
@@ -933,7 +958,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "ElseStatement"
+              "name": "RElseStatement"
             },
             {
               "type": "BLANK"
@@ -946,7 +971,55 @@
         }
       ]
     },
-    "ElseIfStatement": {
+    "LIfStatement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "FIELD",
+          "name": "test",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "then"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LConsequent"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "LElseIfStatement"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "LElseStatement"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "endif"
+        }
+      ]
+    },
+    "RElseIfStatement": {
       "type": "SEQ",
       "members": [
         {
@@ -967,11 +1040,36 @@
         },
         {
           "type": "SYMBOL",
-          "name": "Consequent"
+          "name": "RConsequent"
         }
       ]
     },
-    "ElseStatement": {
+    "LElseIfStatement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "elseif"
+        },
+        {
+          "type": "FIELD",
+          "name": "test",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "then"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LConsequent"
+        }
+      ]
+    },
+    "RElseStatement": {
       "type": "SEQ",
       "members": [
         {
@@ -980,11 +1078,24 @@
         },
         {
           "type": "SYMBOL",
-          "name": "Alternate"
+          "name": "RAlternate"
         }
       ]
     },
-    "Consequent": {
+    "LElseStatement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LAlternate"
+        }
+      ]
+    },
+    "RConsequent": {
       "type": "SEQ",
       "members": [
         {
@@ -1001,7 +1112,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "Statement"
+                    "name": "RStatement"
                   },
                   {
                     "type": "SYMBOL",
@@ -1018,7 +1129,7 @@
         }
       ]
     },
-    "Alternate": {
+    "LConsequent": {
       "type": "SEQ",
       "members": [
         {
@@ -1035,7 +1146,75 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "Statement"
+                    "name": "LStatement"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "NewLine"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "NewLine"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "RAlternate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "NewLine"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "RStatement"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "NewLine"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "NewLine"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "LAlternate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "NewLine"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "LStatement"
                   },
                   {
                     "type": "SYMBOL",
@@ -1073,7 +1252,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "Statement"
+                    "name": "LStatement"
                   },
                   {
                     "type": "SYMBOL",
@@ -1353,8 +1532,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1370,8 +1553,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1383,8 +1570,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1400,8 +1591,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1413,8 +1608,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1430,8 +1629,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1443,8 +1646,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1460,8 +1667,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1473,8 +1684,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1490,8 +1705,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1503,8 +1722,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1520,8 +1743,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1533,8 +1760,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1550,8 +1781,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1563,8 +1798,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1580,8 +1819,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1593,8 +1836,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1610,8 +1857,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1623,8 +1874,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1640,8 +1895,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1653,8 +1912,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1670,8 +1933,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1683,8 +1950,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               },
               {
                 "type": "FIELD",
@@ -1700,8 +1971,12 @@
                 }
               },
               {
-                "type": "SYMBOL",
-                "name": "Expression"
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Expression"
+                }
               }
             ]
           }
@@ -1771,7 +2046,8 @@
   "externals": [],
   "inline": [
     "TopLevel",
-    "Statement",
+    "RStatement",
+    "LStatement",
     "Binding",
     "Expression",
     "PrimaryExpression",
