@@ -121,24 +121,41 @@
       }
     },
     "Null": {
-      "type": "STRING",
-      "value": "null"
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "null"
+      }
+    },
+    "True": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "true"
+      }
+    },
+    "False": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "false"
+      }
     },
     "Boolean": {
-      "type": "TOKEN",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "true"
-          },
-          {
-            "type": "STRING",
-            "value": "false"
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "True"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "False"
+        }
+      ]
     },
     "String": {
       "type": "TOKEN",

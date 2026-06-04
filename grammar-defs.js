@@ -10,7 +10,7 @@
 // @ts-check
 
 const PRECEDENCES = {
-    'and': 1,
+  'and': 1,
 	'or': 2,
 	'==': 10,
 	'!=': 10,
@@ -25,6 +25,8 @@ const PRECEDENCES = {
 	'not': 30,
 	'neg': 30,
 	'pos': 30,
+
+  Literal: 2,
 }
 
 const binaryOperators = [
@@ -122,11 +124,22 @@ const rules = {
 	},
 
 	Null(nodeTypes) {
-		return 'null';
+		return prec(PRECEDENCES.Literal, 'null');
+	},
+
+	True(nodeTypes) {
+		return prec(PRECEDENCES.Literal, 'true');
+	},
+
+	False(nodeTypes) {
+		return prec(PRECEDENCES.Literal, 'false');
 	},
 
 	Boolean(nodeTypes) {
-		return token(choice('true', 'false'));
+		return choice(
+			nodeTypes.True,
+			nodeTypes.False,
+		);
 	},
 
 	String(nodeTypes) {

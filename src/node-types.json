@@ -188,6 +188,25 @@
     }
   },
   {
+    "type": "Boolean",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "False",
+          "named": true
+        },
+        {
+          "type": "True",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "CallExpression",
     "named": true,
     "fields": {
@@ -290,6 +309,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "False",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "FunctionArgument",
@@ -1076,6 +1100,11 @@
     }
   },
   {
+    "type": "Null",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "ParenthesizedExpression",
     "named": true,
     "fields": {},
@@ -1456,6 +1485,11 @@
     }
   },
   {
+    "type": "True",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "TypeDeclaration",
     "named": true,
     "fields": {
@@ -1538,10 +1572,6 @@
     "named": false
   },
   {
-    "type": "Boolean",
-    "named": true
-  },
-  {
     "type": "Byte",
     "named": true
   },
@@ -1584,10 +1614,6 @@
   },
   {
     "type": "None",
-    "named": true
-  },
-  {
-    "type": "Null",
     "named": true
   },
   {
@@ -1663,6 +1689,10 @@
     "named": false
   },
   {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "function",
     "named": false
   },
@@ -1691,6 +1721,10 @@
     "named": false
   },
   {
+    "type": "null",
+    "named": false
+  },
+  {
     "type": "return",
     "named": false
   },
@@ -1708,6 +1742,10 @@
   },
   {
     "type": "then",
+    "named": false
+  },
+  {
+    "type": "true",
     "named": false
   },
   {
