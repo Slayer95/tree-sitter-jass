@@ -290,7 +290,7 @@ const rules = {
 	},
 
 	NativeAttributes(nodeTypes) {
-		return 'constant';
+		return nodeTypes.ConstantAttribute;
 	},
 
 	FunctionDeclaration(nodeTypes) {
@@ -304,7 +304,7 @@ const rules = {
 	},
 
 	FunctionAttributes(nodeTypes) {
-		return 'constant';
+		return nodeTypes.ConstantAttribute;
 	},
 
 	FunctionBody(nodeTypes) {
@@ -336,6 +336,10 @@ const rules = {
 	},
 
 	DeclareAttributes(nodeTypes) {
+		return nodeTypes.ConstantAttribute;
+	},
+
+	ConstantAttribute(nodeTypes) {
 		return 'constant';
 	},
 
@@ -445,9 +449,13 @@ const rules = {
 		return seq(
 			field('callee', nodeTypes.Identifier),
 			'(',
-			optional(field('arguments', repeat1WithDelimiter(nodeTypes, 'FunctionArgument', ','))),
+			optional(nodeTypes.FunctionArgumentList),
 			')',
 		);
+	},
+
+	FunctionArgumentList(nodeTypes) {
+		return repeat1WithDelimiter(nodeTypes, 'FunctionArgument', ',');
 	},
 
 	Expression(nodeTypes) {
@@ -504,7 +512,10 @@ const rules = {
 	},
 
 	CodeReference(nodeTypes) {
-		return seq('function', nodeTypes.Identifier);
+		return seq(
+			'function',
+			field('funarg', nodeTypes.Identifier),
+		);
 	},
 };
 
@@ -545,6 +556,10 @@ module.exports = {
 				nodeTypes.UnaryExpression,
 				//nodeTypes.BinaryExpression,
 				nodeTypes.Integer,
+
+				nodeTypes.DeclareAttributes, // local constant
+				nodeTypes.FunctionAttributes, // constant function
+				nodeTypes.NativeAttributes, // constant native
 			];
 		},
 

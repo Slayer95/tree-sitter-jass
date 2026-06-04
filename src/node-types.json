@@ -191,20 +191,6 @@
     "type": "CallExpression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "FunctionArgument",
-            "named": true
-          }
-        ]
-      },
       "callee": {
         "multiple": false,
         "required": true,
@@ -215,6 +201,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "FunctionArgumentList",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -235,22 +231,18 @@
   {
     "type": "CodeReference",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "Identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "funarg": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Identifier",
+            "named": true
+          }
+        ]
+      }
     }
-  },
-  {
-    "type": "DeclareAttributes",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "ExitWhenStatement",
@@ -351,9 +343,19 @@
     }
   },
   {
-    "type": "FunctionAttributes",
+    "type": "FunctionArgumentList",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "FunctionArgument",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "FunctionBody",
@@ -403,7 +405,7 @@
       "required": true,
       "types": [
         {
-          "type": "FunctionAttributes",
+          "type": "ConstantAttribute",
           "named": true
         },
         {
@@ -536,7 +538,7 @@
       "required": false,
       "types": [
         {
-          "type": "DeclareAttributes",
+          "type": "ConstantAttribute",
           "named": true
         },
         {
@@ -903,7 +905,7 @@
       "required": false,
       "types": [
         {
-          "type": "DeclareAttributes",
+          "type": "ConstantAttribute",
           "named": true
         },
         {
@@ -953,11 +955,6 @@
     }
   },
   {
-    "type": "NativeAttributes",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "NativeDeclaration",
     "named": true,
     "fields": {},
@@ -966,11 +963,11 @@
       "required": true,
       "types": [
         {
-          "type": "FunctionSignature",
+          "type": "ConstantAttribute",
           "named": true
         },
         {
-          "type": "NativeAttributes",
+          "type": "FunctionSignature",
           "named": true
         }
       ]
@@ -1542,6 +1539,10 @@
     "extra": true
   },
   {
+    "type": "ConstantAttribute",
+    "named": true
+  },
+  {
     "type": "DecimalInteger",
     "named": true
   },
@@ -1599,10 +1600,6 @@
   },
   {
     "type": "call",
-    "named": false
-  },
-  {
-    "type": "constant",
     "named": false
   },
   {

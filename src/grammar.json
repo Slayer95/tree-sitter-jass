@@ -670,8 +670,8 @@
       ]
     },
     "NativeAttributes": {
-      "type": "STRING",
-      "value": "constant"
+      "type": "SYMBOL",
+      "name": "ConstantAttribute"
     },
     "FunctionDeclaration": {
       "type": "SEQ",
@@ -707,8 +707,8 @@
       ]
     },
     "FunctionAttributes": {
-      "type": "STRING",
-      "value": "constant"
+      "type": "SYMBOL",
+      "name": "ConstantAttribute"
     },
     "FunctionBody": {
       "type": "SEQ",
@@ -849,6 +849,10 @@
       ]
     },
     "DeclareAttributes": {
+      "type": "SYMBOL",
+      "name": "ConstantAttribute"
+    },
+    "ConstantAttribute": {
       "type": "STRING",
       "value": "constant"
     },
@@ -1373,33 +1377,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "arguments",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "FunctionArgument"
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": ","
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "FunctionArgument"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+              "type": "SYMBOL",
+              "name": "FunctionArgumentList"
             },
             {
               "type": "BLANK"
@@ -1409,6 +1388,31 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "FunctionArgumentList": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "FunctionArgument"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "FunctionArgument"
+              }
+            ]
+          }
         }
       ]
     },
@@ -2021,8 +2025,12 @@
           "value": "function"
         },
         {
-          "type": "SYMBOL",
-          "name": "Identifier"
+          "type": "FIELD",
+          "name": "funarg",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Identifier"
+          }
         }
       ]
     }
@@ -2052,7 +2060,10 @@
     "Expression",
     "PrimaryExpression",
     "UnaryExpression",
-    "Integer"
+    "Integer",
+    "DeclareAttributes",
+    "FunctionAttributes",
+    "NativeAttributes"
   ],
   "supertypes": [],
   "reserved": {}
