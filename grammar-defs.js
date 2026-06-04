@@ -121,6 +121,14 @@ const rules = {
 		return token(seq('//', /.*/));
 	},
 
+	Null(nodeTypes) {
+		return 'null';
+	},
+
+	Boolean(nodeTypes) {
+		return token(choice('true', 'false'));
+	},
+
 	String(nodeTypes) {
 		return token(seq(
 			'"',
@@ -198,6 +206,8 @@ const rules = {
 
 	Literal(nodeTypes) {
 		return choice(
+			nodeTypes.Null,
+			nodeTypes.Boolean,
 			nodeTypes.String,
 			nodeTypes.Integer,
 			nodeTypes.Real,

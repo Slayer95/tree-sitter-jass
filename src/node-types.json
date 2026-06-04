@@ -841,6 +841,10 @@
       "required": true,
       "types": [
         {
+          "type": "Boolean",
+          "named": true
+        },
+        {
           "type": "Byte",
           "named": true
         },
@@ -854,6 +858,10 @@
         },
         {
           "type": "HexInteger",
+          "named": true
+        },
+        {
+          "type": "Null",
           "named": true
         },
         {
@@ -1530,6 +1538,10 @@
     "named": false
   },
   {
+    "type": "Boolean",
+    "named": true
+  },
+  {
     "type": "Byte",
     "named": true
   },
@@ -1572,6 +1584,10 @@
   },
   {
     "type": "None",
+    "named": true
+  },
+  {
+    "type": "Null",
     "named": true
   },
   {

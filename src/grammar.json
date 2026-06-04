@@ -120,6 +120,26 @@
         ]
       }
     },
+    "Null": {
+      "type": "STRING",
+      "value": "null"
+    },
+    "Boolean": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "true"
+          },
+          {
+            "type": "STRING",
+            "value": "false"
+          }
+        ]
+      }
+    },
     "String": {
       "type": "TOKEN",
       "content": {
@@ -344,6 +364,14 @@
     "Literal": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "Null"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "Boolean"
+        },
         {
           "type": "SYMBOL",
           "name": "String"
