@@ -1,16 +1,13 @@
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+const { readFileSync } = require('fs');
+const { resolve } = require('path');
 
-const root = fileURLToPath(new URL("../..", import.meta.url));
+const root = resolve(__dirname, '..', '..');
 
-const binding = typeof process.versions.bun === "string"
-  // Support `bun build --compile` by being statically analyzable enough to find the .node file at build-time
-  ? await import(`${root}/prebuilds/${process.platform}-${process.arch}/tree-sitter-jass.node`)
-  : (await import("node-gyp-build")).default(root);
+const binding = require("node-gyp-build")(root);
 
 try {
-  const nodeTypes = await import(`${root}/src/node-types.json`, { with: { type: "json" } });
-  binding.nodeTypeInfo = nodeTypes.default;
+  const nodeTypes = require('../../src/node-types.json');
+  binding.nodeTypeInfo = nodeTypes;
 } catch { }
 
 const queries = [
@@ -34,4 +31,4 @@ for (const [prop, path] of queries) {
   });
 }
 
-export default binding;
+module.exports = binding;
