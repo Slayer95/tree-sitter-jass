@@ -70,19 +70,6 @@
         }
       ]
     },
-    "Type": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "AtomicType"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ArrayType"
-        }
-      ]
-    },
     "ArrayElement": {
       "type": "SEQ",
       "members": [
@@ -90,8 +77,13 @@
           "type": "FIELD",
           "name": "array",
           "content": {
-            "type": "SYMBOL",
-            "name": "Identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "Identifier"
+            },
+            "named": true,
+            "value": "VariableReference"
           }
         },
         {
@@ -418,8 +410,13 @@
           "type": "FIELD",
           "name": "super",
           "content": {
-            "type": "SYMBOL",
-            "name": "Identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "Identifier"
+            },
+            "named": true,
+            "value": "TypeReference"
           }
         }
       ]
@@ -590,8 +587,13 @@
                 "value": "None"
               },
               {
-                "type": "SYMBOL",
-                "name": "Identifier"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "Identifier"
+                },
+                "named": true,
+                "value": "TypeReference"
               }
             ]
           }
@@ -630,8 +632,13 @@
           "type": "FIELD",
           "name": "type",
           "content": {
-            "type": "SYMBOL",
-            "name": "Identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "Identifier"
+            },
+            "named": true,
+            "value": "TypeReference"
           }
         },
         {
@@ -1336,8 +1343,13 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "Identifier"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Identifier"
+          },
+          "named": true,
+          "value": "VariableReference"
         },
         {
           "type": "SYMBOL",
@@ -1365,8 +1377,13 @@
           "type": "FIELD",
           "name": "callee",
           "content": {
-            "type": "SYMBOL",
-            "name": "Identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "Identifier"
+            },
+            "named": true,
+            "value": "FunctionReference"
           }
         },
         {
@@ -1441,8 +1458,13 @@
           "name": "Literal"
         },
         {
-          "type": "SYMBOL",
-          "name": "Identifier"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Identifier"
+          },
+          "named": true,
+          "value": "VariableReference"
         },
         {
           "type": "SYMBOL",
@@ -2028,8 +2050,13 @@
           "type": "FIELD",
           "name": "funarg",
           "content": {
-            "type": "SYMBOL",
-            "name": "Identifier"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "Identifier"
+            },
+            "named": true,
+            "value": "FunctionReference"
           }
         }
       ]

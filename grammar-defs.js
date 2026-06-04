@@ -107,13 +107,9 @@ const rules = {
 		return seq(nodeTypes.Identifier, 'array');
 	},
 
-	Type(nodeTypes) {
-		return choice(nodeTypes.AtomicType, nodeTypes.ArrayType);
-	},
-
 	ArrayElement(nodeTypes) {
 		return seq(
-			field('array', nodeTypes.Identifier),
+			field('array', alias(nodeTypes.Identifier, nodeTypes.VariableReference)),
 			'[',
 			field('index', nodeTypes.Expression),
 			']',
@@ -224,7 +220,7 @@ const rules = {
 			'type',
 			field('name', nodeTypes.Identifier),
 			'extends',
-			field('super', nodeTypes.Identifier),
+			field('super', alias(nodeTypes.Identifier, nodeTypes.TypeReference)),
 		);
 	},
 
@@ -265,7 +261,7 @@ const rules = {
 			'returns',
 			field('output', choice(
 				alias('nothing', nodeTypes.None),
-				nodeTypes.Identifier,
+				alias(nodeTypes.Identifier, nodeTypes.TypeReference),
 			))
 		);
 	},
@@ -276,7 +272,7 @@ const rules = {
 
 	FunctionParameter(nodeTypes) {
 		return seq(
-			field('type', nodeTypes.Identifier),
+			field('type', alias(nodeTypes.Identifier, nodeTypes.TypeReference)),
 			field('name', nodeTypes.Identifier),
 		);
 	},
@@ -433,7 +429,7 @@ const rules = {
 
 	Binding(nodeTypes) {
 		return choice(
-			nodeTypes.Identifier,
+			alias(nodeTypes.Identifier, nodeTypes.VariableReference),
 			nodeTypes.ArrayElement,
 		);
 	},
@@ -447,7 +443,7 @@ const rules = {
 
 	CallExpression(nodeTypes) {
 		return seq(
-			field('callee', nodeTypes.Identifier),
+			field('callee', alias(nodeTypes.Identifier, nodeTypes.FunctionReference)),
 			'(',
 			optional(nodeTypes.FunctionArgumentList),
 			')',
@@ -469,7 +465,7 @@ const rules = {
 	PrimaryExpression(nodeTypes) {
 		return choice(
 			nodeTypes.Literal,
-			nodeTypes.Identifier,
+			alias(nodeTypes.Identifier, nodeTypes.VariableReference),
 			nodeTypes.ArrayElement,
 			nodeTypes.CallExpression,
 			nodeTypes.ParenthesizedExpression,
@@ -514,7 +510,7 @@ const rules = {
 	CodeReference(nodeTypes) {
 		return seq(
 			'function',
-			field('funarg', nodeTypes.Identifier),
+			field('funarg', alias(nodeTypes.Identifier, nodeTypes.FunctionReference)),
 		);
 	},
 };
