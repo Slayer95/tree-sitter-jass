@@ -264,7 +264,7 @@ const rules = {
 				optional(nodeTypes.DeclareAttributes),
 				field('type', nodeTypes.AtomicType),
 				field('name', nodeTypes.Identifier),
-				optional(nodeTypes.Initializer),
+				optional(field('value', nodeTypes.Initializer)),
 			),
 			seq(
 				field('type', nodeTypes.ArrayType),
@@ -344,7 +344,7 @@ const rules = {
 				optional(nodeTypes.DeclareAttributes),
 				field('type', nodeTypes.AtomicType),
 				field('name', nodeTypes.Identifier),
-				optional(nodeTypes.Initializer),
+				optional(field('value', nodeTypes.Initializer)),
 			),
 			seq(
 				'local',
@@ -366,6 +366,10 @@ const rules = {
 		return seq('=', field('value', nodeTypes.Expression));
 	},
 
+	Test(nodeTypes) {
+		return nodeTypes.Expression;
+	},
+
 	...helpers.setForkWhetherInLoop('Statement', function (nodeTypes) {
 		return choice(
 			this.getForkWhetherInLoop(nodeTypes, 'IfStatement'),
@@ -380,7 +384,7 @@ const rules = {
 	...helpers.setForkWhetherInLoop('IfStatement', function (nodeTypes) {
 		return seq(
 			'if',
-			field('test', nodeTypes.Expression),
+			field('test', nodeTypes.Test),
 			'then',
 			this.getForkWhetherInLoop(nodeTypes, 'Consequent'),
 			repeat(this.getForkWhetherInLoop(nodeTypes, 'ElseIfStatement')),
@@ -392,7 +396,7 @@ const rules = {
 	...helpers.setForkWhetherInLoop('ElseIfStatement', function (nodeTypes) {
 		return seq(
 			'elseif',
-			field('test', nodeTypes.Expression),
+			field('test', nodeTypes.Test),
 			'then',
 			this.getForkWhetherInLoop(nodeTypes, 'Consequent')
 		);
@@ -431,7 +435,7 @@ const rules = {
 	ExitWhenStatement(nodeTypes) {
 		return seq(
 			'exitwhen',
-			nodeTypes.Expression,
+			field('test', nodeTypes.Test),
 		);
 	},
 
@@ -446,7 +450,7 @@ const rules = {
 		return seq(
 			'set',
 			field('binding', nodeTypes.Binding),
-			nodeTypes.Initializer,
+			field('value', nodeTypes.Initializer),
 		);
 	},
 
