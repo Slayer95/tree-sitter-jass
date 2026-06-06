@@ -266,48 +266,17 @@
   {
     "type": "ExitWhenStatement",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ArrayElement",
-          "named": true
-        },
-        {
-          "type": "BinaryExpression",
-          "named": true
-        },
-        {
-          "type": "CallExpression",
-          "named": true
-        },
-        {
-          "type": "Literal",
-          "named": true
-        },
-        {
-          "type": "NegativeExpression",
-          "named": true
-        },
-        {
-          "type": "NotExpression",
-          "named": true
-        },
-        {
-          "type": "ParenthesizedExpression",
-          "named": true
-        },
-        {
-          "type": "PositiveExpression",
-          "named": true
-        },
-        {
-          "type": "VariableReference",
-          "named": true
-        }
-      ]
+    "fields": {
+      "test": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Test",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -555,18 +524,24 @@
             "named": true
           }
         ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "Initializer",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "ConstantAttribute",
-          "named": true
-        },
-        {
-          "type": "Initializer",
           "named": true
         }
       ]
@@ -726,39 +701,7 @@
         "required": true,
         "types": [
           {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          },
-          {
-            "type": "VariableReference",
+            "type": "Test",
             "named": true
           }
         ]
@@ -799,39 +742,7 @@
         "required": true,
         "types": [
           {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          },
-          {
-            "type": "VariableReference",
+            "type": "Test",
             "named": true
           }
         ]
@@ -930,18 +841,24 @@
             "named": true
           }
         ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "Initializer",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
         {
           "type": "ConstantAttribute",
-          "named": true
-        },
-        {
-          "type": "Initializer",
           "named": true
         }
       ]
@@ -1277,39 +1194,7 @@
         "required": true,
         "types": [
           {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          },
-          {
-            "type": "VariableReference",
+            "type": "Test",
             "named": true
           }
         ]
@@ -1350,39 +1235,7 @@
         "required": true,
         "types": [
           {
-            "type": "ArrayElement",
-            "named": true
-          },
-          {
-            "type": "BinaryExpression",
-            "named": true
-          },
-          {
-            "type": "CallExpression",
-            "named": true
-          },
-          {
-            "type": "Literal",
-            "named": true
-          },
-          {
-            "type": "NegativeExpression",
-            "named": true
-          },
-          {
-            "type": "NotExpression",
-            "named": true
-          },
-          {
-            "type": "ParenthesizedExpression",
-            "named": true
-          },
-          {
-            "type": "PositiveExpression",
-            "named": true
-          },
-          {
-            "type": "VariableReference",
+            "type": "Test",
             "named": true
           }
         ]
@@ -1471,14 +1324,61 @@
             "named": true
           }
         ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "Initializer",
+            "named": true
+          }
+        ]
       }
-    },
+    }
+  },
+  {
+    "type": "Test",
+    "named": true,
+    "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "Initializer",
+          "type": "ArrayElement",
+          "named": true
+        },
+        {
+          "type": "BinaryExpression",
+          "named": true
+        },
+        {
+          "type": "CallExpression",
+          "named": true
+        },
+        {
+          "type": "Literal",
+          "named": true
+        },
+        {
+          "type": "NegativeExpression",
+          "named": true
+        },
+        {
+          "type": "NotExpression",
+          "named": true
+        },
+        {
+          "type": "ParenthesizedExpression",
+          "named": true
+        },
+        {
+          "type": "PositiveExpression",
+          "named": true
+        },
+        {
+          "type": "VariableReference",
           "named": true
         }
       ]

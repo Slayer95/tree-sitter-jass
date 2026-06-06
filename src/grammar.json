@@ -542,8 +542,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "Initializer"
+                  "type": "FIELD",
+                  "name": "value",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "Initializer"
+                  }
                 },
                 {
                   "type": "BLANK"
@@ -863,8 +867,12 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "Initializer"
+                  "type": "FIELD",
+                  "name": "value",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "Initializer"
+                  }
                 },
                 {
                   "type": "BLANK"
@@ -924,6 +932,10 @@
           }
         }
       ]
+    },
+    "Test": {
+      "type": "SYMBOL",
+      "name": "Expression"
     },
     "RStatement": {
       "type": "CHOICE",
@@ -991,7 +1003,7 @@
           "name": "test",
           "content": {
             "type": "SYMBOL",
-            "name": "Expression"
+            "name": "Test"
           }
         },
         {
@@ -1039,7 +1051,7 @@
           "name": "test",
           "content": {
             "type": "SYMBOL",
-            "name": "Expression"
+            "name": "Test"
           }
         },
         {
@@ -1087,7 +1099,7 @@
           "name": "test",
           "content": {
             "type": "SYMBOL",
-            "name": "Expression"
+            "name": "Test"
           }
         },
         {
@@ -1112,7 +1124,7 @@
           "name": "test",
           "content": {
             "type": "SYMBOL",
-            "name": "Expression"
+            "name": "Test"
           }
         },
         {
@@ -1337,8 +1349,12 @@
           "value": "exitwhen"
         },
         {
-          "type": "SYMBOL",
-          "name": "Expression"
+          "type": "FIELD",
+          "name": "test",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Test"
+          }
         }
       ]
     },
@@ -1379,8 +1395,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "Initializer"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "Initializer"
+          }
         }
       ]
     },
