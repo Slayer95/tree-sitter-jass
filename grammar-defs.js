@@ -398,7 +398,7 @@ const rules = {
 			'elseif',
 			field('test', nodeTypes.Test),
 			'then',
-			this.getForkWhetherInLoop(nodeTypes, 'Consequent')
+			this.getForkWhetherInLoop(nodeTypes, 'Alternate')
 		);
 	}),
 

@@ -1108,7 +1108,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "RConsequent"
+          "name": "RAlternate"
         }
       ]
     },
@@ -1133,7 +1133,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "LConsequent"
+          "name": "LAlternate"
         }
       ]
     },

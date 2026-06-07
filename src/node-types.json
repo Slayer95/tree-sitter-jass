@@ -712,7 +712,7 @@
       "required": true,
       "types": [
         {
-          "type": "LConsequent",
+          "type": "LAlternate",
           "named": true
         }
       ]
@@ -1205,7 +1205,7 @@
       "required": true,
       "types": [
         {
-          "type": "RConsequent",
+          "type": "RAlternate",
           "named": true
         }
       ]
