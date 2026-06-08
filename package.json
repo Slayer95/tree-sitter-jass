@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-jass",
-  "version": "8.0.3",
+  "version": "8.0.4",
   "description": "Tree-sitter grammar and parser for JASS2",
   "main": "bindings/node",
   "type": "commonjs",
@@ -13,6 +13,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node-gyp rebuild"
   },
+  "files": [
+    "grammar.js",
+    "grammar-defs.js",
+    "src",
+    "bindings/node",
+    "index.js",
+    "package.json",
+	"tree-sitter.json",
+	"pom.xml",
+    "README.md",
+	"CMakeLists.txt",
+	"Makefile",
+	"binding.gyp",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Slayer95/tree-sitter-jass.git"
