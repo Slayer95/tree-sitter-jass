@@ -42,7 +42,7 @@ Prism consumes the syntax trees produced by this grammar and performs higher-lev
 ## Installation
 
 ```bash
-npm install tree-sitter-jass
+npm install github:Slayer95/tree-sitter-jass#main
 ```
 
 ## Usage
