@@ -836,18 +836,6 @@
               "value": "local"
             },
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "DeclareAttributes"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
               "type": "FIELD",
               "name": "type",
               "content": {
@@ -1533,6 +1521,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "CodeReference"
+        },
+        {
+          "type": "SYMBOL",
           "name": "ArrayElement"
         },
         {
@@ -2092,17 +2084,8 @@
       ]
     },
     "FunctionArgument": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "Expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "CodeReference"
-        }
-      ]
+      "type": "SYMBOL",
+      "name": "Expression"
     },
     "CodeReference": {
       "type": "SEQ",

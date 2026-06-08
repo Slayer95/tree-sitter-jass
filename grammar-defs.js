@@ -341,7 +341,6 @@ const rules = {
 		return choice(
 			seq(
 				'local',
-				optional(nodeTypes.DeclareAttributes),
 				field('type', nodeTypes.AtomicType),
 				field('name', nodeTypes.Identifier),
 				optional(field('value', nodeTypes.Initializer)),
@@ -493,6 +492,7 @@ const rules = {
 		return choice(
 			nodeTypes.Literal,
 			alias(nodeTypes.Identifier, nodeTypes.VariableReference),
+			nodeTypes.CodeReference,
 			nodeTypes.ArrayElement,
 			nodeTypes.CallExpression,
 			nodeTypes.ParenthesizedExpression,
@@ -528,10 +528,7 @@ const rules = {
 	},
 
 	FunctionArgument(nodeTypes) {
-		return choice(
-			nodeTypes.Expression,
-			nodeTypes.CodeReference,
-		);
+		return nodeTypes.Expression;
 	},
 
 	CodeReference(nodeTypes) {
@@ -580,7 +577,7 @@ module.exports = {
 				//nodeTypes.BinaryExpression,
 				nodeTypes.Integer,
 
-				nodeTypes.DeclareAttributes, // local constant
+				nodeTypes.DeclareAttributes, // (global) constant <type>
 				nodeTypes.FunctionAttributes, // constant function
 				nodeTypes.NativeAttributes, // constant native
 			];
