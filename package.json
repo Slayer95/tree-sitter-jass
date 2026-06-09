@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-jass",
-  "version": "8.0.4",
+  "version": "8.1.0",
   "description": "Tree-sitter grammar and parser for JASS2",
   "main": "bindings/node",
   "type": "commonjs",

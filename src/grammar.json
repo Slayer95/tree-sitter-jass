@@ -177,7 +177,7 @@
                 },
                 {
                   "type": "PATTERN",
-                  "value": "\\\\."
+                  "value": "\\\\(\\\\|n|r|t|f|b)"
                 }
               ]
             }
@@ -357,19 +357,19 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^']"
+            "value": "[^'\\\\]"
           },
           {
             "type": "PATTERN",
-            "value": "[^']"
+            "value": "[^'\\\\]"
           },
           {
             "type": "PATTERN",
-            "value": "[^']"
+            "value": "[^'\\\\]"
           },
           {
             "type": "PATTERN",
-            "value": "[^']"
+            "value": "[^'\\\\]"
           },
           {
             "type": "STRING",
