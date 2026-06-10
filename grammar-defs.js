@@ -118,6 +118,10 @@ const rules = {
 		);
 	},
 
+	BOM(nodeTypes) {
+		return token('\xEF\xBB\xBF');
+	},
+
 	Comment(nodeTypes) {
 		// Rust dot includes every entity, except LF.
 		return token(seq('//', /.*/));
@@ -195,7 +199,7 @@ const rules = {
 		);
 	},
 
-	Byte(nodeTypes) {
+	SignedChar(nodeTypes) {
 		return token(seq(
 			"'",
 			choice(
@@ -209,10 +213,10 @@ const rules = {
 	FourCC(nodeTypes) {
 		return token(seq(
 			"'",
-			/[^'\\]/,
-			/[^'\\]/,
-			/[^'\\]/,
-			/[^'\\]/,
+			/[^'\\\xFF]/,
+			/[^'\\\xFF]/,
+			/[^'\\\xFF]/,
+			/[^'\\\xFF]/,
 			"'",
 		));
 	},
@@ -225,7 +229,7 @@ const rules = {
 			nodeTypes.Integer,
 			nodeTypes.Real,
 			nodeTypes.FourCC,
-			nodeTypes.Byte,
+			nodeTypes.SignedChar,
 		);
 	},
 
@@ -541,6 +545,7 @@ const rules = {
 
 const root = function program(nodeTypes) {
 	return seq(
+		optional(nodeTypes.BOM),
 		repeat(choice(
 			seq(nodeTypes.TopLevel, nodeTypes.NewLine),
 			nodeTypes.NewLine,

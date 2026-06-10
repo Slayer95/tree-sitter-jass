@@ -796,10 +796,6 @@
           "named": true
         },
         {
-          "type": "Byte",
-          "named": true
-        },
-        {
           "type": "DecimalInteger",
           "named": true
         },
@@ -821,6 +817,10 @@
         },
         {
           "type": "Real",
+          "named": true
+        },
+        {
+          "type": "SignedChar",
           "named": true
         },
         {
@@ -1455,6 +1455,10 @@
       "required": false,
       "types": [
         {
+          "type": "BOM",
+          "named": true
+        },
+        {
           "type": "FunctionDeclaration",
           "named": true
         },
@@ -1502,7 +1506,7 @@
     "named": false
   },
   {
-    "type": "Byte",
+    "type": "BOM",
     "named": true
   },
   {
@@ -1556,6 +1560,10 @@
   },
   {
     "type": "Real",
+    "named": true
+  },
+  {
+    "type": "SignedChar",
     "named": true
   },
   {
