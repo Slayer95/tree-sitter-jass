@@ -353,8 +353,8 @@
                 "value": "[^'\\\\]"
               },
               {
-                "type": "STRING",
-                "value": "\\(\\|n|r|t|f|b)"
+                "type": "PATTERN",
+                "value": "\\\\(\\\\|n|r|t|f|b)"
               }
             ]
           },
