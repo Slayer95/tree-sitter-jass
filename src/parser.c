@@ -1359,20 +1359,28 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 0xbf) ADVANCE(27);
       END_STATE();
     case 15:
-      if (lookahead == '\\' ||
-          lookahead == 'b' ||
-          lookahead == 'f' ||
-          lookahead == 'n' ||
-          lookahead == 'r' ||
-          lookahead == 't') ADVANCE(4);
+      ADVANCE_MAP(
+        '"', 4,
+        '\'', 4,
+        '\\', 4,
+        'b', 4,
+        'f', 4,
+        'n', 4,
+        'r', 4,
+        't', 4,
+      );
       END_STATE();
     case 16:
-      if (lookahead == '\\' ||
-          lookahead == 'b' ||
-          lookahead == 'f' ||
-          lookahead == 'n' ||
-          lookahead == 'r' ||
-          lookahead == 't') ADVANCE(5);
+      ADVANCE_MAP(
+        '"', 5,
+        '\'', 5,
+        '\\', 5,
+        'b', 5,
+        'f', 5,
+        'n', 5,
+        'r', 5,
+        't', 5,
+      );
       END_STATE();
     case 17:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(34);
