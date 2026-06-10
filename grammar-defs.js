@@ -22,6 +22,7 @@ const PRECEDENCES = {
 	'-': 20,
 	'*': 21,
 	'/': 21,
+	'%': 21,
 	'not': 30,
 	'neg': 30,
 	'pos': 30,
@@ -30,7 +31,7 @@ const PRECEDENCES = {
 }
 
 const binaryOperators = [
-	'and', 'or', '==', '!=', '<', '>', '<=', '>=', '+', '-', '*', '/',
+	'and', 'or', '==', '!=', '<', '>', '<=', '>=', '+', '-', '*', '/', '%',
 ];
 
 function repeat1WithDelimiter(nodeTypes, arg, delim) {
