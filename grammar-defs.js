@@ -307,9 +307,9 @@ const rules = {
 
 	NativeDeclaration(nodeTypes) {
 		return seq(
-			optional(nodeTypes.NativeAttributes),
+			optional(nodeTypes.NativeAttributes), // inlined to ConstantAttribute
 			'native',
-			nodeTypes.FunctionSignature,
+			field('signature', nodeTypes.FunctionSignature),
 		);
 	},
 
@@ -319,9 +319,9 @@ const rules = {
 
 	FunctionDeclaration(nodeTypes) {
 		return seq(
-			optional(nodeTypes.FunctionAttributes),
+			optional(nodeTypes.FunctionAttributes), // inlined to ConstantAttribute
 			'function',
-			nodeTypes.FunctionSignature,
+			field('signature', nodeTypes.FunctionSignature),
 			nodeTypes.FunctionBody,
 			'endfunction',
 		);

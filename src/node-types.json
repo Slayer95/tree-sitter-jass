@@ -404,7 +404,18 @@
   {
     "type": "FunctionDeclaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "signature": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "FunctionSignature",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -415,10 +426,6 @@
         },
         {
           "type": "FunctionBody",
-          "named": true
-        },
-        {
-          "type": "FunctionSignature",
           "named": true
         }
       ]
@@ -912,17 +919,24 @@
   {
     "type": "NativeDeclaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "signature": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "FunctionSignature",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "ConstantAttribute",
-          "named": true
-        },
-        {
-          "type": "FunctionSignature",
           "named": true
         }
       ]

@@ -739,8 +739,12 @@
           "value": "native"
         },
         {
-          "type": "SYMBOL",
-          "name": "FunctionSignature"
+          "type": "FIELD",
+          "name": "signature",
+          "content": {
+            "type": "SYMBOL",
+            "name": "FunctionSignature"
+          }
         }
       ]
     },
@@ -768,8 +772,12 @@
           "value": "function"
         },
         {
-          "type": "SYMBOL",
-          "name": "FunctionSignature"
+          "type": "FIELD",
+          "name": "signature",
+          "content": {
+            "type": "SYMBOL",
+            "name": "FunctionSignature"
+          }
         },
         {
           "type": "SYMBOL",
