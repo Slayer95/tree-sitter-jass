@@ -95,7 +95,7 @@ const helpersLoopCtx = {
 
 const rules = {
 	NewLine() {
-		return /\r|\r?\n/;
+		return /\r?\n|\r/;
 	},
 
 	Identifier() {

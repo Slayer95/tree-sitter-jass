@@ -59,7 +59,7 @@
     },
     "NewLine": {
       "type": "PATTERN",
-      "value": "\\r|\\r?\\n"
+      "value": "\\r?\\n|\\r"
     },
     "Identifier": {
       "type": "PATTERN",
