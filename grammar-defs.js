@@ -28,7 +28,7 @@ const PRECEDENCES = {
 	'pos': 30,
 
   Literal: 2,
-}
+};
 
 const binaryOperators = [
 	'and', 'or', '==', '!=', '<', '>', '<=', '>=', '+', '-', '*', '/', '%',
@@ -151,7 +151,7 @@ const rules = {
 		return token(seq(
 			'"',
 			repeat(choice(
-				/[^"\\]/,
+				/[^"\\\x00\xFF]/,
 				/\\(\\|n|r|t|f|b|"|')/,
 			)),
 			'"',
@@ -214,10 +214,10 @@ const rules = {
 	FourCC(nodeTypes) {
 		return token(seq(
 			"'",
-			/[^'\\\xFF]/,
-			/[^'\\\xFF]/,
-			/[^'\\\xFF]/,
-			/[^'\\\xFF]/,
+			/[^'\\\x00\xFF]/,
+			/[^'\\\x00\xFF]/,
+			/[^'\\\x00\xFF]/,
+			/[^'\\\x00\xFF]/,
 			"'",
 		));
 	},
