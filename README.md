@@ -53,13 +53,15 @@ Prism consumes the syntax trees produced by this grammar and performs higher-lev
 
 ## Installation
 
+For Node.js, the ABI 14 branch is required.
+
 ```bash
-npm install github:Slayer95/tree-sitter-jass#main
+npm install github:Slayer95/tree-sitter-jass#abi-14
 ```
 
 ## Usage
 
-Ssource files should typically be loaded using the `latin1` encoding:
+Source files should typically be loaded using the `latin1` encoding:
 
 ```javascript
 const Parser = require('tree-sitter');
