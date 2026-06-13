@@ -31,6 +31,18 @@ It does **not** perform semantic validation, including:
 
 As a result, some files may parse successfully while still failing compilation in Warcraft III.
 
+## Source Encoding
+
+JASS source files are traditionally ANSI-encoded (single-byte character encoding).
+
+This grammar operates on text supplied by the host application and does not enforce a specific code page. However, for compatibility with Warcraft III source files, the following assumptions apply:
+
+* ANSI-encoded source files are supported.
+* A UTF-8 BOM (`EF BB BF`) at the beginning of the file is tolerated.
+* The byte values `0x00` and `0xFF` are invalid anywhere in the source file, including inside comments and string literals.
+
+Files containing `0x00` or `0xFF` are considered malformed and are not valid JASS source files.
+
 ## Semantic Validation
 
 If you need semantic validation, symbol resolution, type checking, or linting, see Prism:
@@ -47,6 +59,8 @@ npm install github:Slayer95/tree-sitter-jass#main
 
 ## Usage
 
+Ssource files should typically be loaded using the `latin1` encoding:
+
 ```javascript
 const Parser = require('tree-sitter');
 const Jass = require('tree-sitter-jass');
@@ -54,6 +68,7 @@ const Jass = require('tree-sitter-jass');
 const parser = new Parser();
 parser.setLanguage(Jass);
 
+const sourceCode = fs.readFileSync('war3map.j', 'latin1');
 const tree = parser.parse(sourceCode);
 ```
 
