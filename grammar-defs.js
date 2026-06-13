@@ -125,7 +125,7 @@ const rules = {
 
 	Comment(nodeTypes) {
 		// Rust dot includes every entity, except LF.
-		return token(seq('//', /.*/));
+		return token(seq('//', /[^\n\x00\xFF]*/));
 	},
 
 	Null(nodeTypes) {
@@ -204,7 +204,7 @@ const rules = {
 		return token(seq(
 			"'",
 			choice(
-				/[^'\\]/,
+				/[^'\\\x00\xFF]/,
 				/\\(\\|n|r|t|f|b|"|')/,
 			),
 			"'",
