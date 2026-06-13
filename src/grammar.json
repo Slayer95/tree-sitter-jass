@@ -134,7 +134,7 @@
           },
           {
             "type": "PATTERN",
-            "value": ".*"
+            "value": "[^\\n\\x00\\xFF]*"
           }
         ]
       }
@@ -350,7 +350,7 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^'\\\\]"
+                "value": "[^'\\\\\\x00\\xFF]"
               },
               {
                 "type": "PATTERN",
